@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Flex w="100%" h="100%" align="center" justify="center" direction="column">
       <Text color="white" fontSize="7xl" mb="50px">
-        YS 타로
+        YS타로
       </Text>
       <Flex align="center" justify="center" direction="column">
         <TarotTypeBtn

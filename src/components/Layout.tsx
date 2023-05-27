@@ -16,7 +16,7 @@ export default function Layout({ children }: any) {
       className={NotoSans.className}
       w="100vw"
       h="100vh"
-      bgImage={"url('/background.jpg')"}
+      bgImage={`url('${prefix}/background.jpg')`}
       bgPosition="center"
       bgRepeat="no-repeat"
       fontWeight="100"

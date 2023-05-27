@@ -18,11 +18,22 @@ export default function SubCardModal({
   const [selectedCard, setSelectedCard] = useState<tarotType>();
 
   const filterArray = (array: tarotType[]) => {
-    const _filteredArr = array.filter(
+    const __filteredArr = array.filter(
       (card) =>
         !selectedList.some(
           (selectedCard) => selectedCard.card_no == card.card_no
         )
+    );
+
+    const _filteredArr = __filteredArr.filter(
+      (card) =>
+        !subCardList.some((selectedCard: any) => {
+          if (selectedCard) {
+            return selectedCard.card_no == card.card_no;
+          } else {
+            return false;
+          }
+        })
     );
 
     // 배열 요소 랜덤으로 섞기

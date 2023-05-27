@@ -31,9 +31,9 @@ export default function SubCards({
       src={`${prefix}/cards/tarot_back.jpg`}
       alt="tarot_back"
       w="30px"
-      h="60px"
       m="5px 3px"
-      border={selected ? "1px solid white" : "1px solid black"}
+      border={selected ? "2px solid black" : "1px solid white"}
+      transform={selected ? "rotate(0.025turn)" : "rotate(0turn)"}
       onClick={onClick}
     ></Image>
   );
