@@ -59,6 +59,9 @@ export default function Choose() {
       case "symbol":
         setShuffledArr(shuffleArray(symbolList));
         break;
+      default:
+        setShuffledArr(shuffleArray(tarotList));
+        break;
     }
   }, [type]);
 
