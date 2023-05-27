@@ -12,10 +12,6 @@ export default function Home() {
   const [clickedCardNo, setclickedCardNo] = useState(0);
   const [subCardList, setSubCardList] = useState(new Array(5));
 
-  useEffect(() => {
-    console.log(111, subCardList);
-  }, [subCardList]);
-
   const selectedList = useRecoilValue(selectedListState);
   const subject = useRecoilValue(subjectState);
   const count = useRecoilValue(countState);

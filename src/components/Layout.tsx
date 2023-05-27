@@ -7,7 +7,6 @@ const NotoSans = Noto_Sans_KR({ weight: ["100", "300"], preload: false });
 
 export default function Layout({ children }: any) {
   const router = useRouter();
-  console.log(router);
   return (
     <Box
       className={NotoSans.className}
