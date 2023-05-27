@@ -27,6 +27,7 @@ export default function Layout({ children }: any) {
           top="10px"
           left="10px"
           src="/home.jpg"
+          alt="home"
           onClick={() => {
             if (confirm("정말 돌아가시겠습니까?")) {
               router.push("/");

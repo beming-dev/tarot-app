@@ -72,7 +72,7 @@ export default function Home() {
 
       <Flex flexDir="column">
         {selectedList.map((card, i) => (
-          <Flex justify="space-evenly">
+          <Flex justify="space-evenly" key={i}>
             <Flex flexDir="column" align="ceenter" justify="center" mb="15px">
               <Image w="60px" src={card.img_name} alt={"resultImg"}></Image>
               <Text textAlign="center" color="white">

@@ -41,6 +41,7 @@ export default function Cards({ card, selected }: propsType) {
   return (
     <Image
       src="/cards/tarot_back.jpg"
+      alt="tarot_back"
       w="30px"
       m="5px 3px"
       border={selected ? "2px solid black" : "1px solid white"}

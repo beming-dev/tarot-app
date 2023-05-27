@@ -22,6 +22,7 @@ export default function SubCards({
   return (
     <Image
       src="/cards/tarot_back.jpg"
+      alt="tarot_back"
       w="30px"
       h="60px"
       m="5px 3px"
