@@ -1,6 +1,6 @@
 {
   "homepage": "https://beming-dev.github.io/tarot-app",
-  "name": "tarot",
+  "name": "ys-tarot",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -32,6 +32,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.12",
     "gh-pages": "^5.0.0"
   }
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beming-dev.github.io/tarot-app/sitemap.xml
