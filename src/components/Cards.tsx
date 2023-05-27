@@ -2,7 +2,12 @@ import { Box, Image } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { tarotType } from "../../assets/array";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { countState, reverseState, selectedListState } from "../../state/atom";
+import {
+  countState,
+  prefixState,
+  reverseState,
+  selectedListState,
+} from "../../state/atom";
 import { REVERSE_PERCENT } from "../../assets/constants";
 
 interface propsType {
@@ -13,6 +18,7 @@ interface propsType {
 export default function Cards({ card, selected }: propsType) {
   const router = useRouter();
 
+  const prefix = useRecoilValue(prefixState);
   const reverse = useRecoilValue(reverseState);
   const count = useRecoilValue(countState);
   const selectedList = useRecoilValue(selectedListState);
@@ -40,7 +46,7 @@ export default function Cards({ card, selected }: propsType) {
   };
   return (
     <Image
-      src="/cards/tarot_back.jpg"
+      src={`${prefix}/cards/tarot_back.jpg`}
       alt="tarot_back"
       w="30px"
       m="5px 3px"

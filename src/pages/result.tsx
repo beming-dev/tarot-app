@@ -1,7 +1,12 @@
 import TarotTypeBtn from "@/components/TarotTypeBtn";
 import { Box, Flex, Text, Image, Button, useToast } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
-import { countState, selectedListState, subjectState } from "../../state/atom";
+import {
+  countState,
+  prefixState,
+  selectedListState,
+  subjectState,
+} from "../../state/atom";
 import { tarotType } from "../../assets/array";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -12,6 +17,7 @@ export default function Home() {
   const [clickedCardNo, setclickedCardNo] = useState(0);
   const [subCardList, setSubCardList] = useState(new Array(5));
 
+  const prefix = useRecoilValue(prefixState);
   const selectedList = useRecoilValue(selectedListState);
   const subject = useRecoilValue(subjectState);
   const count = useRecoilValue(countState);
@@ -68,7 +74,7 @@ export default function Home() {
             </Text>
             <Image
               w="100%"
-              src={subCardList[cardNo]?.img_name}
+              src={prefix + subCardList[cardNo]?.img_name}
               alt={"resultImg"}
             ></Image>
           </Flex>
@@ -83,7 +89,7 @@ export default function Home() {
           <Image
             transform={card.reverse ? "rotate(0.5turn)" : ""}
             w="100%"
-            src={card.img_name}
+            src={prefix + card.img_name}
             alt={"resultImg"}
           ></Image>
           <Text

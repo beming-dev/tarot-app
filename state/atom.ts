@@ -1,6 +1,11 @@
 import { atom } from "recoil";
 import { tarotType } from "../assets/array";
 
+export const prefixState = atom<string>({
+  key: "prefix", // Atom's unique key
+  default: process.env.NODE_ENV === "production" ? "/tarot-app" : "", // Atom's default value
+});
+
 export const typeState = atom<string>({
   key: "type", // Atom's unique key
   default: "tarot", // Atom's default value

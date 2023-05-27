@@ -2,7 +2,12 @@ import { Box, Image } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { tarotType } from "../../assets/array";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { countState, reverseState, selectedListState } from "../../state/atom";
+import {
+  countState,
+  prefixState,
+  reverseState,
+  selectedListState,
+} from "../../state/atom";
 import { REVERSE_PERCENT } from "../../assets/constants";
 
 interface propsType {
@@ -16,12 +21,14 @@ export default function SubCards({
   selected,
   setSelectedCard,
 }: propsType) {
+  const prefix = useRecoilValue(prefixState);
+
   const onClick = () => {
     setSelectedCard(card);
   };
   return (
     <Image
-      src="/cards/tarot_back.jpg"
+      src={`${prefix}/cards/tarot_back.jpg`}
       alt="tarot_back"
       w="30px"
       h="60px"

@@ -1,11 +1,17 @@
 import TarotTypeBtn from "@/components/TarotTypeBtn";
 import { Box, Flex, Text, Image, Button, useToast } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
-import { countState, selectedListState, subjectState } from "../../state/atom";
+import {
+  countState,
+  prefixState,
+  selectedListState,
+  subjectState,
+} from "../../state/atom";
 import { celticResult } from "../../assets/array";
 import { useRouter } from "next/router";
 
 export default function Home() {
+  const prefix = useRecoilValue(prefixState);
   const selectedList = useRecoilValue(selectedListState);
   const router = useRouter();
 
@@ -22,7 +28,7 @@ export default function Home() {
       >
         <Image
           w="100%"
-          src={selectedList[cardNo]?.img_name}
+          src={prefix + selectedList[cardNo]?.img_name}
           alt={"resultImg"}
         ></Image>
       </Flex>
@@ -74,7 +80,11 @@ export default function Home() {
         {selectedList.map((card, i) => (
           <Flex justify="space-evenly" key={i}>
             <Flex flexDir="column" align="ceenter" justify="center" mb="15px">
-              <Image w="60px" src={card.img_name} alt={"resultImg"}></Image>
+              <Image
+                w="60px"
+                src={prefix + card.img_name}
+                alt={"resultImg"}
+              ></Image>
               <Text textAlign="center" color="white">
                 {card.card_name}
               </Text>

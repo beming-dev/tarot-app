@@ -2,11 +2,15 @@ import { Box, Text } from "@chakra-ui/react";
 import { Noto_Sans_KR } from "next/font/google";
 import { Image } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useRecoilValue } from "recoil";
+import { prefixState } from "../../state/atom";
 
 const NotoSans = Noto_Sans_KR({ weight: ["100", "300"], preload: false });
 
 export default function Layout({ children }: any) {
   const router = useRouter();
+  const prefix = useRecoilValue(prefixState);
+
   return (
     <Box
       className={NotoSans.className}
@@ -25,7 +29,7 @@ export default function Layout({ children }: any) {
           position="absolute"
           top="10px"
           left="10px"
-          src="/home.jpg"
+          src={`${prefix}/home.jpg`}
           alt="home"
           onClick={() => {
             if (confirm("정말 돌아가시겠습니까?")) {
