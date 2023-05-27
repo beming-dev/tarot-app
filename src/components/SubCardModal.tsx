@@ -2,7 +2,7 @@ import { Flex, Text, Button } from "@chakra-ui/react";
 import { symbolList, tarotList, tarotType } from "../../assets/array";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { selectedListState, tarotState } from "../../state/atom";
+import { selectedListState, tarotState, typeState } from "../../state/atom";
 import Cards from "./Cards";
 import SubCards from "./SubCards";
 
@@ -12,7 +12,7 @@ export default function SubCardModal({
   setSubCardList,
   subCardList,
 }: any) {
-  const tarotType = useRecoilValue(tarotState);
+  const type = useRecoilValue(typeState);
   const [filteredArr, setFilteredArr] = useState<tarotType[]>([]);
   const selectedList = useRecoilValue(selectedListState);
   const [selectedCard, setSelectedCard] = useState<tarotType>();
@@ -56,7 +56,7 @@ export default function SubCardModal({
   };
 
   useEffect(() => {
-    switch (tarotType) {
+    switch (type) {
       case "tarot":
         setFilteredArr(filterArray(tarotList));
         break;
@@ -64,7 +64,7 @@ export default function SubCardModal({
         setFilteredArr(filterArray(symbolList));
         break;
     }
-  }, [tarotType]);
+  }, [type]);
 
   return (
     <Flex

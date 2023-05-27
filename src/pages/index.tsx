@@ -19,7 +19,7 @@ export default function Home() {
           type="symbol"
         ></TarotTypeBtn>
         <TarotTypeBtn
-          text="켈픽크로스"
+          text="켈틱크로스"
           onClickUrl="celtic"
           type="celtic"
         ></TarotTypeBtn>

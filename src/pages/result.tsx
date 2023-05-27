@@ -73,6 +73,7 @@ export default function Home() {
               {subCardList[cardNo]?.card_name}
             </Text>
             <Image
+              borderRadius="3px"
               w="100%"
               src={prefix + subCardList[cardNo]?.img_name}
               alt={"resultImg"}
@@ -87,6 +88,7 @@ export default function Home() {
           zIndex="1"
         >
           <Image
+            borderRadius="4px"
             transform={card.reverse ? "rotate(0.5turn)" : ""}
             w="100%"
             src={prefix + card.img_name}
