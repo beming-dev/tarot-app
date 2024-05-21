@@ -41,7 +41,7 @@ export default function Cards({ card, selected }: propsType) {
   return (
     <Image
       // src="/cards/tarot_back.jpg"
-      src="/background.png"
+      src="../background.png"
       alt="tarot_back"
       w="30px"
       h="50px"

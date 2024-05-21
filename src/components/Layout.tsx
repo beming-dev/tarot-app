@@ -12,7 +12,7 @@ export default function Layout({ children }: any) {
       className={NotoSans.className}
       w="100vw"
       h="100vh"
-      bgImage={"url('/background.png')"}
+      bgImage={"url('../background.png')"}
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"
@@ -26,7 +26,7 @@ export default function Layout({ children }: any) {
           position="absolute"
           top="20px"
           left="10px"
-          src="/home.jpg"
+          src="../home.jpg"
           alt="home"
           onClick={() => {
             if (confirm("정말 돌아가시겠습니까?")) {
