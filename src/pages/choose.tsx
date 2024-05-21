@@ -5,7 +5,6 @@ import {
   countState,
   reverseState,
   selectedListState,
-  tarotState,
   typeState,
 } from "../../state/atom";
 import { symbolList, tarotList, tarotType } from "../../assets/array";
@@ -18,7 +17,6 @@ export default function Choose() {
   const router = useRouter();
   const selectedList = useRecoilValue(selectedListState);
   const count = useRecoilValue(countState);
-  const tarotType = useRecoilValue(tarotState);
   const setSelectedList = useSetRecoilState(selectedListState);
   const type = useRecoilValue(typeState);
 
@@ -53,7 +51,7 @@ export default function Choose() {
   };
 
   useEffect(() => {
-    switch (tarotType) {
+    switch (type) {
       case "tarot":
         setShuffledArr(shuffleArray(tarotList));
         break;
@@ -61,7 +59,7 @@ export default function Choose() {
         setShuffledArr(shuffleArray(symbolList));
         break;
     }
-  }, [tarotType]);
+  }, [type]);
 
   return (
     <Flex

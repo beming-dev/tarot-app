@@ -24,13 +24,9 @@ export default function TarotTypeBtn({
   const setReverseState = useSetRecoilState(reverseState);
 
   const onClick = () => {
-    setType(type);
-    switch (onClickUrl) {
-      case "celtic":
-        setCount(10);
-        router.push("/choose");
-        break;
+    switch (type) {
       case "tarot-fast":
+        console.log("headsf");
         setCount(3);
         setType("tarot");
         setReverseState(false);
@@ -39,6 +35,16 @@ export default function TarotTypeBtn({
         setCount(3);
         setType("symbol");
         setReverseState(false);
+        break;
+      default:
+        setType(type);
+        break;
+    }
+
+    switch (onClickUrl) {
+      case "celtic":
+        setCount(10);
+        router.push("/choose");
         break;
       default:
         router.push(onClickUrl);

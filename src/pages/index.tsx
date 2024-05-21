@@ -33,7 +33,7 @@ export default function Home() {
           idx={3}
         ></TarotTypeBtn>
         <TarotTypeBtn
-          text="켈픽크로스"
+          text="켈틱크로스"
           onClickUrl="celtic"
           type="celtic"
           idx={4}
