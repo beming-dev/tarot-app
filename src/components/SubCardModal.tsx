@@ -1,7 +1,7 @@
 import { Flex, Text, Button } from "@chakra-ui/react";
 import { symbolList, tarotList, tarotType } from "../../assets/array";
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { selectedListState, tarotState } from "../../state/atom";
 import Cards from "./Cards";
 import SubCards from "./SubCards";
@@ -16,14 +16,20 @@ export default function SubCardModal({
   const [filteredArr, setFilteredArr] = useState<tarotType[]>([]);
   const selectedList = useRecoilValue(selectedListState);
   const [selectedCard, setSelectedCard] = useState<tarotType>();
+  const setSelectedList = useSetRecoilState(selectedListState);
 
   const filterArray = (array: tarotType[]) => {
-    const _filteredArr = array.filter(
-      (card) =>
-        !selectedList.some(
-          (selectedCard) => selectedCard.card_no == card.card_no
-        )
-    );
+    let _filteredArr = array
+      .filter(
+        (card) =>
+          !selectedList.some(
+            (selectedCard) => selectedCard.card_no == card.card_no
+          )
+      )
+      .filter(
+        (card) =>
+          !subCardList.some((subCard: any) => subCard?.card_no == card.card_no)
+      );
 
     // 배열 요소 랜덤으로 섞기
     for (let i = filteredArr.length - 1; i > 0; i--) {
@@ -58,6 +64,7 @@ export default function SubCardModal({
   return (
     <Flex
       w="100vw"
+      maxW={"800px"}
       h="100vh"
       position="absolute"
       alignItems="center"
@@ -70,9 +77,9 @@ export default function SubCardModal({
         w="90vw"
         h="90vh"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="space-between"
         borderRadius="10px"
-        p="10px 0"
+        p="20px 0"
         border="1px solid white"
       >
         <Text color="white">보조카드 뽑기</Text>
@@ -80,9 +87,9 @@ export default function SubCardModal({
           align="center"
           justify="center"
           w="100%"
-          overflow="scroll"
+          overflow="hidden"
           flexWrap="wrap"
-          flex={1}
+          maxW={"500px"}
           m="10px 0"
         >
           {filteredArr.map((card) => (

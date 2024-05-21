@@ -40,11 +40,13 @@ export default function Cards({ card, selected }: propsType) {
   };
   return (
     <Image
-      src="/cards/tarot_back.jpg"
+      // src="/cards/tarot_back.jpg"
+      src="/background.png"
       alt="tarot_back"
       w="30px"
-      m="5px 3px"
-      border={selected ? "2px solid black" : "1px solid white"}
+      h="50px"
+      m="7px 3px"
+      border={selected ? "2px solid white" : "1px solid black"}
       transform={selected ? "rotate(0.025turn)" : "rotate(0turn)"}
       onClick={onClick}
     ></Image>

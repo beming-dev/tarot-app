@@ -65,7 +65,6 @@ export default function Count() {
   };
 
   const onInputChange = (e: any) => {
-    console.log(e.target.value);
     setSubjectState(e.target.value);
   };
 

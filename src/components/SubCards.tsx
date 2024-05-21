@@ -21,12 +21,13 @@ export default function SubCards({
   };
   return (
     <Image
-      src="/cards/tarot_back.jpg"
+      src="/background.png"
       alt="tarot_back"
       w="30px"
       h="60px"
       m="5px 3px"
       border={selected ? "1px solid white" : "1px solid black"}
+      transform={selected ? "rotate(0.025turn)" : "rotate(0turn)"}
       onClick={onClick}
     ></Image>
   );

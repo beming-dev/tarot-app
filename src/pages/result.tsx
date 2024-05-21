@@ -12,10 +12,6 @@ export default function Home() {
   const [clickedCardNo, setclickedCardNo] = useState(0);
   const [subCardList, setSubCardList] = useState(new Array(5));
 
-  useEffect(() => {
-    console.log(111, subCardList);
-  }, [subCardList]);
-
   const selectedList = useRecoilValue(selectedListState);
   const subject = useRecoilValue(subjectState);
   const count = useRecoilValue(countState);
@@ -46,6 +42,7 @@ export default function Home() {
       <Flex
         position="relative"
         w={`${90 / count}%`}
+        maxW="200px"
         key={card.card_no}
         m="1%"
         alignItems="center"
@@ -132,7 +129,7 @@ export default function Home() {
         position="absolute"
         color="white"
         right="15px"
-        top="10px"
+        top="20px"
         border="1px solid white"
         borderRadius="100px"
         onClick={() => {

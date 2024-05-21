@@ -64,7 +64,14 @@ export default function Choose() {
   }, [tarotType]);
 
   return (
-    <Flex w="100%" h="100%" align="center" justify="center" direction="column">
+    <Flex
+      w="100%"
+      h="100%"
+      align="center"
+      justify="space-between"
+      direction="column"
+      padding={"20px 0"}
+    >
       <Text color="white" fontSize="2xl" mt="20px">
         {count}장의 카드를 골라주세요
       </Text>
@@ -72,10 +79,10 @@ export default function Choose() {
         align="center"
         justify="center"
         w="100%"
-        overflow="scroll"
+        overflow="hidden"
         flexWrap="wrap"
-        flex={1}
         m="10px 0"
+        maxW={"500px"}
       >
         {shuffledArr.map((card) => (
           <Cards

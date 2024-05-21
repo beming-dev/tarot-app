@@ -1,19 +1,27 @@
 import { Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useSetRecoilState } from "recoil";
-import { countState, typeState } from "../../state/atom";
+import { countState, reverseState, typeState } from "../../state/atom";
 
 interface propsType {
   text: string;
   onClickUrl: string;
   type: string;
+  idx: number;
 }
 
-export default function TarotTypeBtn({ text, onClickUrl, type }: propsType) {
+export default function TarotTypeBtn({
+  text,
+  onClickUrl,
+  type,
+  idx,
+}: propsType) {
+  const colorList = ["#C6DBDA", "#FEE1E8", "#FED7C3", "#F6EAC2", "#ECD5E3"];
   const router = useRouter();
 
   const setCount = useSetRecoilState(countState);
   const setType = useSetRecoilState(typeState);
+  const setReverseState = useSetRecoilState(reverseState);
 
   const onClick = () => {
     setType(type);
@@ -21,6 +29,16 @@ export default function TarotTypeBtn({ text, onClickUrl, type }: propsType) {
       case "celtic":
         setCount(10);
         router.push("/choose");
+        break;
+      case "tarot-fast":
+        setCount(3);
+        setType("tarot");
+        setReverseState(false);
+        break;
+      case "symbol-fast":
+        setCount(3);
+        setType("symbol");
+        setReverseState(false);
         break;
       default:
         router.push(onClickUrl);
@@ -33,7 +51,7 @@ export default function TarotTypeBtn({ text, onClickUrl, type }: propsType) {
       w="150px"
       h="40px"
       m="10px 0"
-      bgColor="white"
+      bgColor={colorList[idx % 5]}
       transitionDuration="1s"
       onClick={onClick}
       _hover={{
