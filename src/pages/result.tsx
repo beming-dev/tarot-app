@@ -6,11 +6,14 @@ import { tarotType } from "../../assets/array";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import SubCardModal from "@/components/SubCardModal";
+import GPTModal from "@/components/GPTModal";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [clickedCardNo, setclickedCardNo] = useState(0);
   const [subCardList, setSubCardList] = useState(new Array(5));
+
+  const [showGPTModal, setShowGPTModal] = useState(false);
 
   const selectedList = useRecoilValue(selectedListState);
   const subject = useRecoilValue(subjectState);
@@ -35,6 +38,17 @@ export default function Home() {
     if (subCardList[cardNo]) return;
     setclickedCardNo(cardNo);
     setShowModal(true);
+  };
+
+  const getTarots = () => {
+    let result = "";
+
+    selectedList.forEach((card) => {
+      result += card.card_name;
+      result += ", ";
+    });
+
+    return result;
   };
 
   const resultCard = (card: tarotType, cardNo: number) => {
@@ -71,7 +85,6 @@ export default function Home() {
               w="100%"
               src={subCardList[cardNo]?.img_name}
               alt={"resultImg"}
-              borderRadius={"10px"}
             ></Image>
           </Flex>
         )}
@@ -87,7 +100,6 @@ export default function Home() {
             w="100%"
             src={card.img_name}
             alt={"resultImg"}
-            borderRadius={"10px"}
           ></Image>
           <Text
             w="100%"
@@ -122,6 +134,13 @@ export default function Home() {
           clickedCardNo={clickedCardNo}
           setShowModal={setShowModal}
         ></SubCardModal>
+      )}
+
+      {showGPTModal && (
+        <GPTModal
+          setShowModal={setShowGPTModal}
+          selectedList={getTarots()}
+        ></GPTModal>
       )}
       <Text
         w="25px"
@@ -161,6 +180,7 @@ export default function Home() {
             resultCard(card, i)
           )}
         </Flex>
+        <Button onClick={() => setShowGPTModal(true)}>GPT에 질문하기</Button>
       </Flex>
       <Flex mb="20px">
         <Button
