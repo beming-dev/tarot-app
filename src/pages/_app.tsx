@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <Script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -41,6 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        id="gtm-script"
       />
       <ChakraProvider>
         <RecoilRoot>
