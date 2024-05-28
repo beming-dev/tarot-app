@@ -71,6 +71,7 @@ export default function Home() {
               w="100%"
               src={subCardList[cardNo]?.img_name}
               alt={"resultImg"}
+              borderRadius={"10px"}
             ></Image>
           </Flex>
         )}
@@ -86,6 +87,7 @@ export default function Home() {
             w="100%"
             src={card.img_name}
             alt={"resultImg"}
+            borderRadius={"10px"}
           ></Image>
           <Text
             w="100%"
