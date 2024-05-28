@@ -1,11 +1,14 @@
 import { Button, Flex, Input, Spinner, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { typeState } from "../../state/atom";
 
 export default function GPTModal({ setShowModal, selectedList }: any) {
   const [q, setQ] = useState("");
   const [gptResult, setChatGPTResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [secCode, setSecCode] = useState("");
+  const type = useRecoilValue(typeState);
 
   const maxRequestsPerDay = 2;
 
@@ -54,7 +57,7 @@ export default function GPTModal({ setShowModal, selectedList }: any) {
       setLoading(true);
       const response = await fetch("/api/chat", {
         method: "POST",
-        body: JSON.stringify({ question: q, cards: selectedList }),
+        body: JSON.stringify({ question: q, cards: selectedList, type }),
       });
 
       if (response.ok) {

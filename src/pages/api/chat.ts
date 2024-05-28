@@ -1,9 +1,11 @@
 import { NextApiResponse } from "next";
 import { NextResponse, NextRequest } from "next/server";
 
-const createScript = (question: string, cards: string) => {
+const createScript = (question: string, cards: string, type: string) => {
   return `
-    내가 질문과 뽑은 타로카드를 알려주면 해석해서 알려줘.
+    내가 질문과 뽑은 ${
+      type == "tarot" ? "타로" : "심볼론"
+    }카드를 알려주면 해석해서 알려줘.
     질문: ${question}
     뽑은 카드: ${cards}
     각 카드별로 해석한 결과를 개행문자로 구분해서 결과를 보내줘.
@@ -16,7 +18,7 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
     let requests: any = req.body;
     requests = JSON.parse(requests);
 
-    const { question, cards } = requests;
+    const { question, cards, type } = requests;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -29,7 +31,7 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
         messages: [
           {
             role: "user",
-            content: createScript(question, cards),
+            content: createScript(question, cards, type),
           },
         ],
         temperature: 1,
