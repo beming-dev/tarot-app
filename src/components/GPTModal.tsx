@@ -120,10 +120,12 @@ export default function GPTModal({ setShowModal, selectedList }: any) {
         ></Input>
         <Text
           w="100%"
+          h="50%"
           flex="1"
           border="3px solid black"
           bgColor="blackAlpha.400"
           dangerouslySetInnerHTML={{ __html: gptResult }}
+          overflowY="scroll"
         ></Text>
         <Input
           type="text"
