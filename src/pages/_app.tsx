@@ -22,10 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+      <Script
+        dangerouslySetInnerHTML={{
+          __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
@@ -34,9 +33,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                   page_path: window.location.pathname,
                 });
               `,
-          }}
-        />
-      </Head>
+        }}
+      />
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         strategy="afterInteractive"
