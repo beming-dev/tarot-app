@@ -69,10 +69,27 @@ export default function Count() {
   };
 
   return (
-    <Flex w="100vw" h="100%" align="center" overflow="hidden">
-      <Flex transitionDuration="1s" transform={`translate(${-100 * turn}vw)`}>
+    <Flex
+      w="100%"
+      h="100%"
+      align="center"
+      overflow="hidden"
+      position="relative"
+    >
+      <Flex
+        transitionDuration="1s"
+        transform={`translate(${-100 * turn}%)`}
+        display="flex"
+        w="100%"
+      >
         {/* 1 */}
-        <Flex w="100vw" align="center" justify="center" direction="column">
+        <Flex
+          w="100%"
+          align="center"
+          justify="center"
+          direction="column"
+          flex="0 0 100%"
+        >
           <Text color="white" fontSize="2xl" mb="50px">
             몇 장의 카드를 선택할까요?
           </Text>
@@ -84,11 +101,12 @@ export default function Count() {
         </Flex>
         {/* 2 */}
         <Flex
-          w="100vw"
+          w="100%"
           align="center"
           justify="center"
           direction="column"
           p="0 5px"
+          flex="0 0 100%"
         >
           <Text color="white" fontSize="2xl">
             주제가 무엇인가요? (선택)
@@ -122,11 +140,12 @@ export default function Count() {
 
         {/* 3 */}
         <Flex
-          w="100vw"
+          w="100%"
           align="center"
           justify="center"
           direction="column"
           p="0 5px"
+          flex="0 0 100%"
         >
           <Text color="white" fontSize="2xl">
             역방향을 사용할까요?

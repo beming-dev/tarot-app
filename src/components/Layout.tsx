@@ -52,7 +52,9 @@ export default function Layout({ children }: any) {
         ></Image>
       )}
       <Box w="100vw" h="100vh" backgroundColor="rgba(0, 0, 0, 0.3)">
-        {children}
+        <Box w="100%" maxW="800px" mx="auto" h="100%">
+          {children}
+        </Box>
       </Box>
     </Box>
   );
