@@ -154,7 +154,7 @@ export default function Choose() {
           mx="auto"
           display="flex"
           border="2px solid white"
-          color="white"
+          color="black"
           fontSize={{ base: "sm", md: "md" }}
           fontWeight="600"
           py={{ base: "16px", md: "20px" }}
