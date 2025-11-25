@@ -100,6 +100,7 @@ export default function Home() {
             w="100%"
             src={card.img_name}
             alt={"resultImg"}
+            borderRadius="7px"
           ></Image>
           <Text
             w="100%"
@@ -180,7 +181,7 @@ export default function Home() {
             resultCard(card, i)
           )}
         </Flex>
-        <Button onClick={() => setShowGPTModal(true)}>GPT에 질문하기</Button>
+        {/* <Button onClick={() => setShowGPTModal(true)}>GPT에 질문하기</Button> */}
       </Flex>
       <Flex mb="20px">
         <Button

@@ -12,12 +12,18 @@ export default function Layout({ children }: any) {
       className={NotoSans.className}
       w="100vw"
       h="100vh"
-      bgImage={"url('./background.jpg')"}
+      bgImage={"url('/background2.png')"}
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"
+      bgAttachment="fixed"
       fontWeight="100"
       position="relative"
+      sx={{
+        "@media (min-width: 800px)": {
+          backgroundSize: "800px auto",
+        },
+      }}
     >
       {router.pathname !== "/" && (
         <Image
