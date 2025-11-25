@@ -14,11 +14,13 @@ export function getImagePath(path: string): string {
     return path;
   }
 
-  // 현재 URL이 GitHub Pages인지 확인 (github.io 도메인 또는 프로덕션 빌드)
+  // 현재 URL이 GitHub Pages인지 확인
+  // github.io 도메인이거나, pathname이 /tarot-app으로 시작하거나, 프로덕션 빌드인 경우
   const isGitHubPages =
     window.location.hostname.includes("github.io") ||
+    window.location.pathname.startsWith("/tarot-app") ||
     (process.env.NODE_ENV === "production" &&
-      window.location.pathname.startsWith("/tarot-app"));
+      window.location.hostname !== "localhost");
 
   // GitHub Pages이고 절대 경로인 경우 basePath 추가
   if (isGitHubPages && path.startsWith("/")) {
