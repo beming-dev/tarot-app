@@ -146,7 +146,7 @@ export default function Choose() {
         w="100%"
         flexShrink={0}
         pt={{ base: "8px", md: "12px" }}
-        pb={{ base: "45px", md: "45px" }}
+        pb={{ base: "55px", sm: "30px" }}
       >
         <Button
           w="100%"
