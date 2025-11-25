@@ -4,6 +4,7 @@ import { tarotType } from "../../assets/array";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { countState, reverseState, selectedListState } from "../../state/atom";
 import { REVERSE_PERCENT } from "../../assets/constants";
+import { getImagePath } from "@/lib/path";
 
 interface propsType {
   card: tarotType;
@@ -21,7 +22,7 @@ export default function SubCards({
   };
   return (
     <Image
-      src="/background.jpg"
+      src={getImagePath("/background.jpg")}
       alt="tarot_back"
       w="30px"
       h="60px"

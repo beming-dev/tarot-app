@@ -4,6 +4,7 @@ import { useRecoilValue } from "recoil";
 import { countState, selectedListState, subjectState } from "../../state/atom";
 import { celticResult } from "../../assets/array";
 import { useRouter } from "next/router";
+import { getImagePath } from "@/lib/path";
 
 export default function Home() {
   const selectedList = useRecoilValue(selectedListState);
@@ -22,7 +23,7 @@ export default function Home() {
       >
         <Image
           w="100%"
-          src={selectedList[cardNo]?.img_name}
+          src={getImagePath(selectedList[cardNo]?.img_name || "")}
           alt={"resultImg"}
         ></Image>
       </Flex>

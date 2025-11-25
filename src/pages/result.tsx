@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import SubCardModal from "@/components/SubCardModal";
 import GPTModal from "@/components/GPTModal";
+import { getImagePath } from "@/lib/path";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -83,7 +84,7 @@ export default function Home() {
             </Text>
             <Image
               w="100%"
-              src={subCardList[cardNo]?.img_name}
+              src={getImagePath(subCardList[cardNo]?.img_name || "")}
               alt={"resultImg"}
             ></Image>
           </Flex>
@@ -98,7 +99,7 @@ export default function Home() {
           <Image
             transform={card.reverse ? "rotate(0.5turn)" : ""}
             w="100%"
-            src={card.img_name}
+            src={getImagePath(card.img_name)}
             alt={"resultImg"}
             borderRadius="7px"
           ></Image>

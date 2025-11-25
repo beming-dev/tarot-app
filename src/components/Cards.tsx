@@ -4,6 +4,7 @@ import { tarotType } from "../../assets/array";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { countState, reverseState, selectedListState } from "../../state/atom";
 import { REVERSE_PERCENT } from "../../assets/constants";
+import { getImagePath } from "@/lib/path";
 
 interface propsType {
   card: tarotType;
@@ -40,7 +41,7 @@ export default function Cards({ card, selected }: propsType) {
   };
   return (
     <Image
-      src="/background2.png"
+      src={getImagePath("/background2.png")}
       alt="tarot_back"
       w={{ base: "35px", sm: "38px", md: "42px" }}
       h={{ base: "48px", sm: "52px", md: "58px" }}

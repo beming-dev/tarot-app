@@ -2,6 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import { Poor_Story } from "next/font/google";
 import { Image } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { getBackgroundImageUrl, getImagePath } from "@/lib/path";
 
 const NotoSans = Poor_Story({ weight: ["400"], preload: false });
 
@@ -12,7 +13,7 @@ export default function Layout({ children }: any) {
       className={NotoSans.className}
       w="100vw"
       h="100vh"
-      bgImage={"url('/background2.png')"}
+      bgImage={getBackgroundImageUrl("/background2.png")}
       bgSize={"cover"}
       bgPosition="center"
       bgRepeat="no-repeat"
@@ -32,7 +33,7 @@ export default function Layout({ children }: any) {
           position="absolute"
           top="20px"
           left="10px"
-          src="/home.jpg"
+          src={getImagePath("/home.jpg")}
           alt="home"
           onClick={() => {
             if (confirm("정말 돌아가시겠습니까?")) {
