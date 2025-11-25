@@ -32,7 +32,7 @@ export default function Layout({ children }: any) {
           position="absolute"
           top="20px"
           left="10px"
-          src="../home.jpg"
+          src="/home.jpg"
           alt="home"
           onClick={() => {
             if (confirm("정말 돌아가시겠습니까?")) {
