@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script
+        id="gtag-script"
         dangerouslySetInnerHTML={{
           __html: `
                 window.dataLayer = window.dataLayer || [];
