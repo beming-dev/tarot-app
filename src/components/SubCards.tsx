@@ -22,14 +22,28 @@ export default function SubCards({
   };
   return (
     <Image
-      src={getImagePath("/background.jpg")}
+      src={getImagePath("/background2.png")}
       alt="tarot_back"
-      w="30px"
-      h="60px"
-      m="5px 3px"
-      border={selected ? "1px solid white" : "1px solid black"}
-      transform={selected ? "rotate(0.025turn)" : "rotate(0turn)"}
+      w={{ base: "35px", sm: "38px", md: "42px" }}
+      h={{ base: "48px", sm: "52px", md: "58px" }}
+      border={
+        selected ? "3px solid #FFD700" : "2px solid rgba(255,255,255,0.3)"
+      }
+      borderRadius="5px"
+      transform={selected ? "scale(1.08) rotate(2deg)" : "scale(1)"}
       onClick={onClick}
-    ></Image>
+      cursor="pointer"
+      transition="all 0.2s ease"
+      _hover={{
+        transform: selected ? "scale(1.12) rotate(2deg)" : "scale(1.03)",
+        borderColor: selected ? "#FFD700" : "rgba(255,255,255,0.6)",
+      }}
+      boxShadow={
+        selected
+          ? "0 4px 12px rgba(255,215,0,0.5), 0 0 8px rgba(255,215,0,0.3)"
+          : "0 2px 6px rgba(0,0,0,0.3)"
+      }
+      objectFit="cover"
+    />
   );
 }

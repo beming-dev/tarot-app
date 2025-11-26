@@ -35,24 +35,24 @@ export default function Layout({ children }: any) {
         },
       }}
     >
-      {router.pathname !== "/" && (
-        <Image
-          zIndex="11"
-          w="25px"
-          position="absolute"
-          top="20px"
-          left="10px"
-          src={getImagePath("/home.jpg")}
-          alt="home"
-          onClick={() => {
-            if (confirm("정말 돌아가시겠습니까?")) {
-              router.push("/");
-            }
-          }}
-        ></Image>
-      )}
       <Box w="100vw" h="100vh" backgroundColor="rgba(0, 0, 0, 0.3)">
-        <Box w="100%" maxW="800px" mx="auto" h="100%">
+        <Box w="100%" maxW="800px" mx="auto" h="100%" position="relative">
+          {router.pathname !== "/" && (
+            <Image
+              zIndex="11"
+              w="25px"
+              position="absolute"
+              top="20px"
+              left="10px"
+              src={getImagePath("/home.jpg")}
+              alt="home"
+              onClick={() => {
+                if (confirm("정말 돌아가시겠습니까?")) {
+                  router.push("/");
+                }
+              }}
+            ></Image>
+          )}
           {children}
         </Box>
       </Box>

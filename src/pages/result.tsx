@@ -67,7 +67,7 @@ export default function Home() {
           <Flex
             position="absolute"
             top={`${-21 * count}%`}
-            w="90%"
+            w="80%"
             direction="column"
             alignItems="center"
           >
@@ -76,7 +76,7 @@ export default function Home() {
               textAlign="center"
               fontSize="sm"
               color="white"
-              mt="5px"
+              mt={{ base: "50px", sm: "50px", md: "110px" }}
               textOverflow="clip"
               whiteSpace="nowrap"
             >
